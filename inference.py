@@ -38,7 +38,6 @@ import itertools
 import sys
 from tqdm import tqdm
 
-from torch.autograd import Variable
 from models import *
 import tensorflow as tf
 from tensorflow import keras
@@ -49,8 +48,8 @@ from utils import ls, preprocess_wav, melspectrogram, to_numpy, plot_mel_transfe
 from params import sample_rate
 import soundfile as sf
 
-import skimage.metrics
-from statistics import mean
+# import skimage.metrics
+# from statistics import mean
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--epoch", type=int, default=99, help="saved version based on epoch to test from")
