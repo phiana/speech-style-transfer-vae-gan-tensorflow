@@ -72,7 +72,7 @@ Alternatively, you can just run the following command on the command line withou
 python3 inference.py --epoch 15 --wav 'data/spkr_1/2274602044_b3d55df235_3.wav' --trg_id 2
 ```
 
-Please feel free to visit the Github repository of my entire implementation: https://github.com/phiana/speech-style-transfer-vae-gan-tensorflow
+Please feel free to visit the Github repository of my entire implementation: https://github.com/phiana/speech-style-transfer-vae-gan-tensorflow. It may be easier to view the `.png` figures and listen to the `.wav` file using this method.
 
 ## Tools
 
