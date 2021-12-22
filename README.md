@@ -20,7 +20,7 @@ In order to train your own model from scratch using my implementation, please fo
 
 #### Clone the repository to your machine
 
-I have already done so in the shared class VM instance located in my personal `pja2114` directory, but in case one needed to re-clone my repository, please do so with the following command:
+I have already done so in the shared class VM instance located in my personal `pja2114/` directory, but in case one needed to re-clone my repository, please do so with the following command:
 
 ```
 git clone https://github.com/phiana/speech-style-transfer-vae-gan-tensorflow
@@ -72,8 +72,6 @@ Alternatively, you can just run the following command on the command line withou
 python3 inference.py --epoch 15 --wav 'data/spkr_1/2274602044_b3d55df235_3.wav' --trg_id 2
 ```
 
-Please feel free to visit the Github repository of my entire implementation: https://github.com/phiana/speech-style-transfer-vae-gan-tensorflow. It may be easier to view the `.png` figures and listen to the `.wav` file using this method.
-
 ## Tools
 
 Upon being asked about whether [Kaldi](https://kaldi-asr.org/) supported basic functionality for [text-to-speech](https://en.wikipedia.org/wiki/Speech_synthesis) (TTS) research (such as the use of neural audio synthesis techniques to convert mel-spectrograms back into the time domain), Daniel Povey, the main developer of Kaldi responded in the [following forum post](https://groups.google.com/g/kaldi-help/c/DH5f0aoAbN8): “TTS is out of scope for Kaldi, at the moment at least.” To make matters worse, since my proposed project is a speech-to-speech model, there is no need to consider textual transcriptions, alignments, and so forth, of audio waveforms as a part of the required training pipeline, meaning Kaldi essentially provided no infrastructure for me to conduct my research this semester. Since Kaldi officially does not support text-to-speech or speech-to-speech functionality, I unfortunately could not use it as a part of my training pipeline.
@@ -91,35 +89,35 @@ Instead, my project is implemented primarily in TensorFlow and related libraries
 
 ## References, related work, and additional reading
 
-[1] Aaron van den Oord, Sander Dieleman, Heiga Zen, Karen Simonyan, Oriol Vinyals, Alex Graves, Nal Kalchbrenner, Andrew Senior, and Koray Kavukcuoglu. WaveNet: A generative model for raw audio. arXiv, 2016. URL https://arxiv.org/pdf/1609.03499.pdf.  
-[2] adityajn105. Flickr8k Audio Caption Dataset. Kaggle, 2020. URL https://www.kaggle.com/adityajn105/flickr8k.  
-[3] Ben Hayes, Charalampos Saitis, and George Fazekas. Neural waveshaping synthesis. arXiv, 2021. URL https://arxiv.org/pdf/2107.05050.pdf.  
-[4] Berrak Sisman, Junichi Yamagishi, Simon King, and Haizhou Li. An Overview of Voice Conversion and Its Challenges: From Statistical Modeling to Deep Learning. IEEE/ACM Transactions on Audio, Speech, and Language Processing, 2021. URL https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=92620 21.  
-[5] Daniel Griffin and Jae Lim. Signal estimation from modified short-time fourier transform. IEEE Transactions on Acoustics, Speech, and Signal Processing, 32(2):236–243, 1984.  
-[6] Diederik P Kingma and Max Welling. Auto-encoding variational bayes. Stat, 1050:1, 2014. URL https://arxiv.org/pdf/1312.6114.pdf.  
-[7] Ehab A. AlBadawy and Siwei Lyu. Voice Conversion Using Speech-to-Speech Neuro-Style Transfer. In Proc. Interspeech 2020, pages 4726–4730, 2020. URL https://ebadawy.github.io/post/speech_style_transfer/Albadawy_et_al-2020-INTERSPEECH.pdf.  
-[8] Eric Grinstein, Ngoc Duong, Alexey Ozerov, and Patrick Pérez. Audio style transfer. ICASSP 2018. URL https://hal.archives- ouvertes.fr/hal-01626389/document.  
-[9] Fadi Biadsy, Ron J. Weiss, Pedro J. Moreno, Dimitri Kanevsky, and Ye Jia. Parrotron: An End-to-End Speech-to- Speech Conversion Model and its Applications to Hearing- Impaired Speech and Speech Separation. Interspeech, 2019. URL https://arxiv.org/pdf/1904.04169.pdf.  
-[10] François Hernandez, Vincent Nguyen, Sahar Ghannay, Natalia Tomashenko, and Yannick Estève. TED-LIUM 3: twice as much data and corpus repartition for experiments on speaker adaptation. SPECOM, 2018. URL https://arxiv.org/pdf/1805.04699.pdf.  
-[11] Ian J Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio. Generative adversarial nets. Stat, 1050:10, 2014. URL https://arxiv.org/pdf/1406.2661.pdf.  
-[12] Jesse Engel, Cinjon Resnick, Adam Roberts, Sander Dieleman, Douglas Eck, Karen Simonyan, and Mohammad Norouzi. Neural Audio Synthesis of Musical Notes with WaveNet Autoencoders. arXiv, 2017. URL https://arxiv.org/abs/1704.01279.  
-[13] Jesse Engel, Kumar Krishna Agrawal, Shuo Chen, Ishaan Gulrajani, Chris Donahue, and Adam Roberts. GANSynth: Adversarial Neural Audio Synthesis. ICLR, 2019. URL https://openreview.net/pdf?id=H1xQVn09FX.  
-[14] Jesse Engel, Lamtharn (Hanoi) Hantrakul, Chenjie Gu, and Adam Roberts. DDSP: Differentiable Digital Signal Processing. ICLR, 2020. URL https://openreview.net/attachment?id=B1x1ma4tDr&name=original_pdf.  
-[15] Jonathan Shen, Ruoming Pang, Ron J. Weiss, Mike Schuster, Navdeep Jaitly, Zongheng Yang, Zhifeng Chen, Yu Zhang, Yuxuan Wang, RJ Skerry-Ryan, Rif A. Saurous, Yannis Agiomyrgiannakis, and Yonghui Wu. Natural TTS Synthesis by Conditioning WaveNet on Mel Spectrogram Predictions. ICASSP, 2018. URL https://arxiv.org/pdf/1712.05884.pdf.  
-[16] Jun-Yan Zhu, Taesung Park, Phillip Isola, Alexei A. Efros. Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks. ICCV, 2017. URL https://arxiv.org/pdf/1703.10593.pdf. 
-[17] Jungil Kong, Jaehyeon Kim, and Jaekyoung Bae. HiFi-GAN: Generative Adversarial Networks for Efficient and High Fidelity Speech Synthesis. NeurIPS, 2020. URL https://arxiv.org/pdf/2010.05646.pdf.  
-[18] Kaizhi Qian, Yang Zhang, Shiyu Chang, Xuesong Yang, and Mark Hasegawa-Johnson. AutoVC: Zero-Shot Voice Style
+1. Aaron van den Oord, Sander Dieleman, Heiga Zen, Karen Simonyan, Oriol Vinyals, Alex Graves, Nal Kalchbrenner, Andrew Senior, and Koray Kavukcuoglu. WaveNet: A generative model for raw audio. arXiv, 2016. URL https://arxiv.org/pdf/1609.03499.pdf.  
+1. adityajn105. Flickr8k Audio Caption Dataset. Kaggle, 2020. URL https://www.kaggle.com/adityajn105/flickr8k.  
+1. Ben Hayes, Charalampos Saitis, and George Fazekas. Neural waveshaping synthesis. arXiv, 2021. URL https://arxiv.org/pdf/2107.05050.pdf.  
+1. Berrak Sisman, Junichi Yamagishi, Simon King, and Haizhou Li. An Overview of Voice Conversion and Its Challenges: From Statistical Modeling to Deep Learning. IEEE/ACM Transactions on Audio, Speech, and Language Processing, 2021. URL https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=92620 21.  
+1. Daniel Griffin and Jae Lim. Signal estimation from modified short-time fourier transform. IEEE Transactions on Acoustics, Speech, and Signal Processing, 32(2):236–243, 1984.  
+1. Diederik P Kingma and Max Welling. Auto-encoding variational bayes. Stat, 1050:1, 2014. URL https://arxiv.org/pdf/1312.6114.pdf.  
+1. Ehab A. AlBadawy and Siwei Lyu. Voice Conversion Using Speech-to-Speech Neuro-Style Transfer. In Proc. Interspeech 2020, pages 4726–4730, 2020. URL https://ebadawy.github.io/post/speech_style_transfer/Albadawy_et_al-2020-INTERSPEECH.pdf.  
+1. Eric Grinstein, Ngoc Duong, Alexey Ozerov, and Patrick Pérez. Audio style transfer. ICASSP 2018. URL https://hal.archives- ouvertes.fr/hal-01626389/document.  
+1. Fadi Biadsy, Ron J. Weiss, Pedro J. Moreno, Dimitri Kanevsky, and Ye Jia. Parrotron: An End-to-End Speech-to- Speech Conversion Model and its Applications to Hearing- Impaired Speech and Speech Separation. Interspeech, 2019. URL https://arxiv.org/pdf/1904.04169.pdf.  
+1. François Hernandez, Vincent Nguyen, Sahar Ghannay, Natalia Tomashenko, and Yannick Estève. TED-LIUM 3: twice as much data and corpus repartition for experiments on speaker adaptation. SPECOM, 2018. URL https://arxiv.org/pdf/1805.04699.pdf.  
+1. Ian J Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio. Generative adversarial nets. Stat, 1050:10, 2014. URL https://arxiv.org/pdf/1406.2661.pdf.  
+1. Jesse Engel, Cinjon Resnick, Adam Roberts, Sander Dieleman, Douglas Eck, Karen Simonyan, and Mohammad Norouzi. Neural Audio Synthesis of Musical Notes with WaveNet Autoencoders. arXiv, 2017. URL https://arxiv.org/abs/1704.01279.  
+1. Jesse Engel, Kumar Krishna Agrawal, Shuo Chen, Ishaan Gulrajani, Chris Donahue, and Adam Roberts. GANSynth: Adversarial Neural Audio Synthesis. ICLR, 2019. URL https://openreview.net/pdf?id=H1xQVn09FX.  
+1. Jesse Engel, Lamtharn (Hanoi) Hantrakul, Chenjie Gu, and Adam Roberts. DDSP: Differentiable Digital Signal Processing. ICLR, 2020. URL https://openreview.net/attachment?id=B1x1ma4tDr&name=original_pdf.  
+1. Jonathan Shen, Ruoming Pang, Ron J. Weiss, Mike Schuster, Navdeep Jaitly, Zongheng Yang, Zhifeng Chen, Yu Zhang, Yuxuan Wang, RJ Skerry-Ryan, Rif A. Saurous, Yannis Agiomyrgiannakis, and Yonghui Wu. Natural TTS Synthesis by Conditioning WaveNet on Mel Spectrogram Predictions. ICASSP, 2018. URL https://arxiv.org/pdf/1712.05884.pdf.  
+1. Jun-Yan Zhu, Taesung Park, Phillip Isola, Alexei A. Efros. Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks. ICCV, 2017. URL https://arxiv.org/pdf/1703.10593.pdf. 
+1. Jungil Kong, Jaehyeon Kim, and Jaekyoung Bae. HiFi-GAN: Generative Adversarial Networks for Efficient and High Fidelity Speech Synthesis. NeurIPS, 2020. URL https://arxiv.org/pdf/2010.05646.pdf.  
+1. Kaizhi Qian, Yang Zhang, Shiyu Chang, Xuesong Yang, and Mark Hasegawa-Johnson. AutoVC: Zero-Shot Voice Style
 Transfer with Only Autoencoder Loss. ICML, 2019. URL https://arxiv.org/pdf/1905.05879.pdf.  
-[19] Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge. A Neural Algorithm of Artistic Style. arXiv, 2015. URL https://arxiv.org/pdf/1508.06576.pdf.  
-[20] Philippe Esling, Axel Chemla–Romeu-Santos, and Adrien Bitton. Bridging audio analysis, perception and synthesis with perceptually-regularized variational timbre spaces. ISMIR, 2018. URL http://ismir2018.ircam.fr/doc/pdfs/219_Paper.pdf.  
-[21] Russell Sammut Bonnici, Charalampos Saitis, and Martin Benning. Timbre Transfer with Variational Auto Encoding and Cycle-Consistent Adversarial Networks. arXiv, 2021. URL https://arxiv.org/pdf/2109.02096.pdf.  
-[22] Ryan Prenger, Rafael Valle, and Bryan Catanzaro. WaveGlow: A Flow-based Generative Network for Speech Synthesis. arXiv, 2018. URL https://arxiv.org/pdf/1811.00002.pdf.  
-[23] Sercan Ö. Arık, Jitong Chen, Kainan Peng, Wei Ping, and Yanqi Zhou. Neural Voice Cloning with a Few Samples. NIPS, 2018. URL https://arxiv.org/pdf/1802.06006.pdf.  
-[24] Sergey Ioffe and Christian Szegedy. Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift. arXiv, 2015. URL https://arxiv.org/pdf/1502.03167.pdf.  
-[25] Siyang Yuan, Pengyu Cheng, Ruiyi Zhang, Weituo Hao, Zhe Gan, and Lawrence Carin. Improving Zero-shot Voice Style Transfer via Disentangled Representation Learning. ICLR, 2021. URL https://arxiv.org/pdf/2103.09420.pdf.  
-[26] Soroush Mehri, Kundan Kumar, Ishaan Gulrajani, Rithesh Kumar, Shubham Jain, Jose Sotelo, Aaron Courville, and Yoshua Bengio. SampleRNN: An Unconditional End-to-End Neural Audio Generation Model. ICLR, 2017.  
+1. Leon A. Gatys, Alexander S. Ecker, and Matthias Bethge. A Neural Algorithm of Artistic Style. arXiv, 2015. URL https://arxiv.org/pdf/1508.06576.pdf.  
+1. Philippe Esling, Axel Chemla–Romeu-Santos, and Adrien Bitton. Bridging audio analysis, perception and synthesis with perceptually-regularized variational timbre spaces. ISMIR, 2018. URL http://ismir2018.ircam.fr/doc/pdfs/219_Paper.pdf.  
+1. Russell Sammut Bonnici, Charalampos Saitis, and Martin Benning. Timbre Transfer with Variational Auto Encoding and Cycle-Consistent Adversarial Networks. arXiv, 2021. URL https://arxiv.org/pdf/2109.02096.pdf.  
+1. Ryan Prenger, Rafael Valle, and Bryan Catanzaro. WaveGlow: A Flow-based Generative Network for Speech Synthesis. arXiv, 2018. URL https://arxiv.org/pdf/1811.00002.pdf.  
+1. Sercan Ö. Arık, Jitong Chen, Kainan Peng, Wei Ping, and Yanqi Zhou. Neural Voice Cloning with a Few Samples. NIPS, 2018. URL https://arxiv.org/pdf/1802.06006.pdf.  
+1. Sergey Ioffe and Christian Szegedy. Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift. arXiv, 2015. URL https://arxiv.org/pdf/1502.03167.pdf.  
+1. Siyang Yuan, Pengyu Cheng, Ruiyi Zhang, Weituo Hao, Zhe Gan, and Lawrence Carin. Improving Zero-shot Voice Style Transfer via Disentangled Representation Learning. ICLR, 2021. URL https://arxiv.org/pdf/2103.09420.pdf.  
+1. Soroush Mehri, Kundan Kumar, Ishaan Gulrajani, Rithesh Kumar, Shubham Jain, Jose Sotelo, Aaron Courville, and Yoshua Bengio. SampleRNN: An Unconditional End-to-End Neural Audio Generation Model. ICLR, 2017.  
 URL https://arxiv.org/pdf/1612.07837.pdf.  
-[27] Stanislav Beliaev, Yurii Rebryk, and Boris Ginsburg. TalkNet: Fully-Convolutional Non-Autoregressive Speech Synthesis Model. arXiv, 2020. URL https://arxiv.org/pdf/2005.05514.pdf.  
-[28] Vassil Panayotov, Guoguo Chen, Daniel Povey and Sanjeev Khudanpur. LibriSpeech: An ASR corpus based on public domain audio books. ICASSP, 2015. URL http://www.danielpovey.com/files/2015_icassp_librispeech.pdf.  
-[29] Yi Ren, Jinglin Liu, and Zhou Zhao. PortaSpeech: Portable and High-Quality Generative Text-to-Speech. arXiv, 2021. URL https://arxiv.org/pdf/2109.15166.pdf.
-[30] Yuxuan Wang, RJ Skerry-Ryan, Daisy Stanton, Yonghui Wu, Ron J. Weiss, Navdeep Jaitly, Zongheng Yang, Ying Xiao, Zhifeng Chen, Samy Bengio, Quoc Le, Yannis Agiomyrgiannakis, Rob Clark, and Rif A. Saurous. TacoTron: Towards end-to-end speech synthesis. arXiv, 2017. URL https://arxiv.org/pdf/1703.10135.pdf.
+1. Stanislav Beliaev, Yurii Rebryk, and Boris Ginsburg. TalkNet: Fully-Convolutional Non-Autoregressive Speech Synthesis Model. arXiv, 2020. URL https://arxiv.org/pdf/2005.05514.pdf.  
+1. Vassil Panayotov, Guoguo Chen, Daniel Povey and Sanjeev Khudanpur. LibriSpeech: An ASR corpus based on public domain audio books. ICASSP, 2015. URL http://www.danielpovey.com/files/2015_icassp_librispeech.pdf.  
+1. Yi Ren, Jinglin Liu, and Zhou Zhao. PortaSpeech: Portable and High-Quality Generative Text-to-Speech. arXiv, 2021. URL https://arxiv.org/pdf/2109.15166.pdf.
+1. Yuxuan Wang, RJ Skerry-Ryan, Daisy Stanton, Yonghui Wu, Ron J. Weiss, Navdeep Jaitly, Zongheng Yang, Ying Xiao, Zhifeng Chen, Samy Bengio, Quoc Le, Yannis Agiomyrgiannakis, Rob Clark, and Rif A. Saurous. TacoTron: Towards end-to-end speech synthesis. arXiv, 2017. URL https://arxiv.org/pdf/1703.10135.pdf.
