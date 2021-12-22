@@ -96,7 +96,7 @@ Instead, my project is implemented primarily in TensorFlow and related libraries
 1. Daniel Griffin and Jae Lim. Signal estimation from modified short-time fourier transform. IEEE Transactions on Acoustics, Speech, and Signal Processing, 32(2):236–243, 1984.  
 1. Diederik P Kingma and Max Welling. Auto-encoding variational bayes. Stat, 1050:1, 2014. URL https://arxiv.org/pdf/1312.6114.pdf.  
 1. Ehab A. AlBadawy and Siwei Lyu. Voice Conversion Using Speech-to-Speech Neuro-Style Transfer. In Proc. Interspeech 2020, pages 4726–4730, 2020. URL https://ebadawy.github.io/post/speech_style_transfer/Albadawy_et_al-2020-INTERSPEECH.pdf.  
-1. Eric Grinstein, Ngoc Duong, Alexey Ozerov, and Patrick Pérez. Audio style transfer. ICASSP 2018. URL https://hal.archives- ouvertes.fr/hal-01626389/document.  
+1. Eric Grinstein, Ngoc Duong, Alexey Ozerov, and Patrick Pérez. Audio style transfer. ICASSP 2018. URL https://hal.archives-ouvertes.fr/hal-01626389/document.  
 1. Fadi Biadsy, Ron J. Weiss, Pedro J. Moreno, Dimitri Kanevsky, and Ye Jia. Parrotron: An End-to-End Speech-to- Speech Conversion Model and its Applications to Hearing- Impaired Speech and Speech Separation. Interspeech, 2019. URL https://arxiv.org/pdf/1904.04169.pdf.  
 1. François Hernandez, Vincent Nguyen, Sahar Ghannay, Natalia Tomashenko, and Yannick Estève. TED-LIUM 3: twice as much data and corpus repartition for experiments on speaker adaptation. SPECOM, 2018. URL https://arxiv.org/pdf/1805.04699.pdf.  
 1. Ian J Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio. Generative adversarial nets. Stat, 1050:10, 2014. URL https://arxiv.org/pdf/1406.2661.pdf.  
