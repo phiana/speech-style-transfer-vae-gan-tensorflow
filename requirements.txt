@@ -1,0 +1,10 @@
+librosa
+matplotlib
+numpy
+scikit_learn
+scipy
+soundfile
+tensorflow-addons
+tensorflow
+tqdm
+webrtcvad
