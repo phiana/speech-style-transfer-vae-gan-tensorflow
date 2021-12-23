@@ -72,12 +72,6 @@ Alternatively, you can just run the following command on the command line withou
 python3 inference.py --epoch 15 --wav 'data/spkr_1/2274602044_b3d55df235_3.wav' --trg_id 2
 ```
 
-## Tools
-
-Upon being asked about whether [Kaldi](https://kaldi-asr.org/) supported basic functionality for [text-to-speech](https://en.wikipedia.org/wiki/Speech_synthesis) (TTS) research (such as the use of neural audio synthesis techniques to convert mel-spectrograms back into the time domain), Daniel Povey, the main developer of Kaldi responded in the [following forum post](https://groups.google.com/g/kaldi-help/c/DH5f0aoAbN8): “TTS is out of scope for Kaldi, at the moment at least.” To make matters worse, since my proposed project is a speech-to-speech model, there is no need to consider textual transcriptions, alignments, and so forth, of audio waveforms as a part of the required training pipeline, meaning Kaldi essentially provided no infrastructure for me to conduct my research this semester. Since Kaldi officially does not support text-to-speech or speech-to-speech functionality, I unfortunately could not use it as a part of my training pipeline.
-
-Instead, my project is implemented primarily in TensorFlow and related libraries. For a comprehensive list of tools used in the project, please refer to the `requirements.txt` file. 
-
 ## Future work
 
 * Replace basic [Griffin-Lim-based vocoder](https://paperswithcode.com/method/griffin-lim-algorithm) for iterative phase reconstruction and modern [neural WaveNet vocoder](https://arxiv.org/pdf/1609.03499.pdf) with more recent, non-autoregressive [HiFi-GAN vocoder](https://arxiv.org/pdf/2010.05646.pdf) as final step in the inference pipeline
