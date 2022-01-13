@@ -1,16 +1,10 @@
-Philip Anastassiou (pja2114)  
-COMS 6998: Fundamentals of Speech Recognition  
-Professor Homayoon Beigi  
-Columbia University  
-Due: December 19th, 2021  
-
 # Speech-to-Speech Style Transfer with Variational Autoencoder-Generative Adversarial Networks
 
 Neural audio synthesis is the application of deep neural networks to synthesize audio waveforms in a data-driven fashion. The advent of deep learning, coupled with increasingly powerful computational resources, has allowed researchers to train models for this task both on musical and speech signals directly on raw audio waveforms (or related representations in the [time-frequency domain](https://en.wikipedia.org/wiki/Time-frequency_analysis) by applying variants of [integral transforms](https://en.wikipedia.org/wiki/Integral_transform) such as the [Short-Time Fourier Transform](https://en.wikipedia.org/wiki/Short-time_Fourier_transform)), as opposed to symbolic representations of audio.
 
 This repository contains an implementation of a variational autoencoder-generative adversarial network (VAE-GAN) architecture for speech-to-speech [style transfer](https://en.wikipedia.org/wiki/Neural_Style_Transfer) in [TensorFlow](https://www.tensorflow.org/), originally proposed for voice conversion in _[Voice Conversion Using Speech-to-Speech Neuro-Style Transfer](https://ebadawy.github.io/post/speech_style_transfer/Albadawy_et_al-2020-INTERSPEECH.pdf)_ by AlBadawy, et al. (2020) and expanded upon to include functionality for timbre transfer of musical instruments by _[Timbre Transfer with Variational Auto Encoding and Cycle-Consistent Adversarial Networks](https://arxiv.org/pdf/2109.02096.pdf)_ by Bonnici, et al. (2021).
 
-The purpose of the model is to synthesize a new audio signal that retains the linguistic information of an utterance by a source speaker, while applying the timbral characteristics of a target speaker. The architecture does so by training a single universal encoder, but replaces the decoder used in traditional variational autoencoders (VAEs) with unique generator networks for every speaker, each of which compete against adversary discriminator networks used only during the training procedure, enabling style transfer.
+The purpose of the model is to synthesize a new audio signal that retains the linguistic information of an utterance by a source speaker, while applying the timbral characteristics of a target speaker. The architecture does so by training a single universal encoder, but replaces the decoder used in traditional variational autoencoders (VAEs) with unique generator networks for every speaker, each of which competes against adversary discriminator networks used only during the training procedure, enabling style transfer.
 
 Please refer to the original repositories by [AlBadawy, et al.](https://github.com/ebadawy/voice_conversion) or [Bonnici, et al.](https://github.com/RussellSB/tt-vae-gan) for PyTorch implementations of this architecture, the latter of which contains [pre-trained WaveNet vocoder models](https://github.com/RussellSB/tt-vae-gan#pretrained-models) to convert predicted log-scaled mel-spectrograms back into high-fidelity audio signals in the time-domain.
 
@@ -20,7 +14,7 @@ In order to train your own model from scratch using my implementation, please fo
 
 #### Clone the repository to your machine
 
-I have already done so in the shared class VM instance located in my personal `pja2114/` directory, but in case one needed to re-clone my repository, please do so with the following command:
+Run the following command in your termnal:
 
 ```
 git clone https://github.com/phiana/speech-style-transfer-vae-gan-tensorflow
@@ -34,7 +28,7 @@ You can ensure that all required libraries/frameworks are installed in your Pyth
 pip install -r requirements.txt
 ```
 
-However, this is not necessary in this case, as I have already installed all required dependencies in the shared class VM instance, so the repository should run as intended without issue.
+Optionally, you can skip running this command directly, as it is included in the training recipe described below.
 
 #### Run the training recipe
 
@@ -48,25 +42,21 @@ This will begin the training procedure using default settings (currently only on
 
 The script is divided into numbered stages, so you can stop and restart at a particular stage of the pipeline by manually changing the value of the `stage` variable at the top of the file.
 
-Please note that the script assumes you are working within a `conda` virtual environment. The first stage installs `pip` using the `conda` command to ensure that the following installations will run without interruption. However, if you already have `pip` installed in your environment of choice and would prefer not to work in a `conda` environment, you can simply set the `stage` variable from `0` to `1` in `run.sh` prior to running it, which will skip this first step and begin by checking if the dependencies are installed in your environment (which, again, assumes your machine has `pip` installed). In case you do want to work in a `conda` environment, I suggest running `conda update conda` and `conda upgrade pip` before running any other files to ensure that the script will run smoothly. For the purposes of this assignment, though, I have already configured the environment so that it is not necessary to use a `conda` environment. In other words, everything has been prepared to run as expected.
+Please note that the script assumes you are working within a `conda` virtual environment. The first stage installs `pip` using the `conda` command to ensure that the following installations will run without interruption. However, if you already have `pip` installed in your environment of choice and would prefer not to work in a `conda` environment, you can simply set the `stage` variable from `0` to `1` in `run.sh` prior to running it, which will skip this first step and begin by checking if the dependencies are installed in your environment (which, again, assumes your machine has `pip` installed). In case you do want to work in a `conda` environment, I suggest running `conda update conda` and `conda upgrade pip` before running any other files to ensure that the script will run smoothly. 
 
-Please note that I have already run the bash script to stage `7` in the local class VM instance, and all needed files are contained in the directory `pja2114/speech-style-transfer-vae-gan-tensorflow`. If you wanted to train the model, set `stage` to `8` and run `./run.sh`.
+After running the script, you will find a directory `data/`, which contains the raw Flickr 8k Audio Caption Corpus used for training a model in the child directory `flickr_audio/`, as well as two prepared directories produced by the `run.sh` recipe (`spkr_1/` and `spkr_2/` containing `.wav` files for two speakers used in one-to-one training). You will also see the preprocessed partitioned datasets for these two speakers (training, test, and validation sets) serialized into `.pickle` files. 
 
-You will see a directory `data/`, which contains the raw Flickr 8k Audio Caption Corpus I used for training my model in the child directory `flickr_audio/`, as well as two prepared directories produced by the `run.sh` recipe (`spkr_1/` and `spkr_2/` containing `.wav` files for two speakers used in one-to-one training). You will also see the preprocessed partitioned datasets for these two speakers (training, test, and validation sets) serialized into `.pickle` files. If you were to train from scratch, `train.py` would use these `.pickle` files to train a new model, but I do not recommend training the model on this VM instance, as it is a very computationally expensive with millions of parameters and definitely requires a GPU (if not several).
+#### Performing inference using a trained model
 
-#### Performing inference using my trained model
+After training is complete, a directory `out_train/` will be created, in which you will find two additional directories, `plot_0t1` and `plot_1t0`. In the spirit of [CycleGAN](https://arxiv.org/pdf/1703.10593.pdf), this model makes use of a cyclic consistency loss, which encourages the generator networks not to fall into the trap of [mode collapse](https://developers.google.com/machine-learning/gan/problems#mode-collapse) by repeatedly producing a single, realistic output that is guaranteed to deceive the discriminators (this is essentially cheating in the adversarial training process and leads to poor latent embeddings). This outcome is enforced by attempting to reconstruct the original input mel-spectrogram using the generated, style-transferred output in the opposite direction of the pipeline.
 
-Ultimately, I was able to train my model for 15 epochs with a batch size of 4 samples per iteration. The authors call for 100 epochs of training, so while my final model has not reached its fullest potential, it is still capable of performing the voice conversion task, albeit with some artifacts caused by some expected under-fitting.
+The `.png` files contained in these sub-directories are visual representations of the input log-scaled mel-spectrogram (one sample from the current batch) alongside the predicted style-transferred output (top row), and the cyclic reconstruction of the first output alongside the target spectrogram (bottom row).
 
-I have included the final trained weights for the five subnetworks used in my VAE-GAN model after 15 epochs in the directory `saved_h5_weights/pja2114_voice_conversion/`. You do not need to interact with these files directly. 
+Finally, to listen to audio samples of the voice conversion inference process produced by a model, please see the directory `out_infer/`. In the sub-directory `ref/`, there will be a `.wav` file of the original, true recording of an utterance by the first speaker. In the sub-directory `gen/`, you may listen to the styled-transferred output that the model produces of the same utterance, as spoken by the second speaker, only using the input audio file as reference. In the sub-directory `plots/`, you will find a side-by-side visual comparison of the original input mel-spectrogram and the style-transferred output mel-spectrogram. 
 
-In the directory `out_train/pja2114_voice_conversion`, you will find two additional directories, `plot_0t1` and `plot_1t0`. In the spirit of CycleGAN, this model makes use of a cyclic consistency loss, which attempts to encourage the generator networks not to fall into the trap of mode collapse by always producing a single, realistic output that is guaranteed to deceive the discriminators (this is essentially cheating in the adversarial training process and leads to poor latent embeddings). The model does so by also attempting to take the generated, style-transferred output and reconstruct an original target. The `.png` files contained in these sub-directories are visual representations of the input log-scaled mel-spectrogram (one sample from the current batch) alongside the predicted style-transferred output (top row), and the cyclic reconstruction of the first output alongside the target spectrogram (bottom row). I have included these plots for just the last epoch of training. As you can see, by the 15th epoch, the predicted mel-spectrograms have improved substantially. 
+To actually run the inference pipeline yourself, there are two approaches. First, you may change the `stage` variable in `run.sh` to `9`, and then run the script, which will perform voice conversion on a single audio file as an example, and store the results in `out_infer/`, as explained above. 
 
-Finally, to actually listen to audio samples of the voice conversion inference process produced by my model, please see the directory `out_infer\pja2114_voice_conversion_15_G2`. I have included these examples for convenience (but will also explain how to run the inference process yourself on the command line in a moment). In the sub-directory `ref/`, there is a `.wav` file of the original, true recording of an utterance by the first speaker. In the sub-directory `gen/`, you may listen to the styled-transferred output that my model produced of the same utterance, as spoken by the second speaker, only using the input audio file as reference. You will notice there are some artifacts, but this is due to only 15% of the intended training procedure being completed. Given 100 epochs, the model produces much more robust, realistic results. Nonetheless, it can clearly be heard that the model converts the original utterance to sound as though it was spoken by the second speaker in the dataset. In the sub-directory `plots/`, you will find a side-by-side visual comparison of the original input mel-spectrogram and the style-transferred output mel-spectrogram. 
-
-To actually run the inference pipeline yourself, there are two methods. First, you can change the `stage` variable in `run.sh` to `9`, and then run the script, which will perform voice conversion on a single audio file, and store the results in `out_infer\pja2114_voice_conversion_15_G2`, as explained above. 
-
-Alternatively, you can just run the following command on the command line without running the `run.sh` script, as follows:
+Alternatively, you can run the following command on the command line without running the `run.sh` script (the parameters below are simply to demonstrate the syntax of the inference command, but may be changed as needed):
 
 ```
 python3 inference.py --epoch 15 --wav 'data/spkr_1/2274602044_b3d55df235_3.wav' --trg_id 2
