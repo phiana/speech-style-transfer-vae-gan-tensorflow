@@ -14,7 +14,7 @@ In order to train your own model from scratch using my implementation, please fo
 
 #### Clone the repository to your machine
 
-Run the following command in your termnal:
+Run the following command in your terminal:
 
 ```
 git clone https://github.com/phiana/speech-style-transfer-vae-gan-tensorflow
