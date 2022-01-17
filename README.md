@@ -74,10 +74,10 @@ python3 inference.py --epoch 15 --wav 'data/spkr_1/2274602044_b3d55df235_3.wav' 
 ## References, related work, and additional reading
 
 1. Aaron van den Oord, Sander Dieleman, Heiga Zen, Karen Simonyan, Oriol Vinyals, Alex Graves, Nal Kalchbrenner, Andrew Senior, and Koray Kavukcuoglu. WaveNet: A generative model for raw audio. arXiv, 2016. URL https://arxiv.org/pdf/1609.03499.pdf.  
-1. adityajn105. Flickr8k Audio Caption Dataset. Kaggle, 2020. URL https://www.kaggle.com/adityajn105/flickr8k.  
 1. Ben Hayes, Charalampos Saitis, and George Fazekas. Neural waveshaping synthesis. arXiv, 2021. URL https://arxiv.org/pdf/2107.05050.pdf.  
 1. Berrak Sisman, Junichi Yamagishi, Simon King, and Haizhou Li. An Overview of Voice Conversion and Its Challenges: From Statistical Modeling to Deep Learning. IEEE/ACM Transactions on Audio, Speech, and Language Processing, 2021. URL https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=92620 21.  
 1. Daniel Griffin and Jae Lim. Signal estimation from modified short-time fourier transform. IEEE Transactions on Acoustics, Speech, and Signal Processing, 32(2):236–243, 1984.  
+1. David Harwath and James Glass. Deep Multimodal Semantic Embeddings for Speech and Images. 2015 IEEE Automatic Speech Recognition and Understanding Workshop, pp. 237-244, Scottsdale, Arizona, USA, December 2015. URL https://groups.csail.mit.edu/sls/publications/2015/Harwath_ASRU-15.pdf.
 1. Diederik P Kingma and Max Welling. Auto-encoding variational bayes. Stat, 1050:1, 2014. URL https://arxiv.org/pdf/1312.6114.pdf.  
 1. Ehab A. AlBadawy and Siwei Lyu. Voice Conversion Using Speech-to-Speech Neuro-Style Transfer. In Proc. Interspeech 2020, pages 4726–4730, 2020. URL https://ebadawy.github.io/post/speech_style_transfer/Albadawy_et_al-2020-INTERSPEECH.pdf.  
 1. Eric Grinstein, Ngoc Duong, Alexey Ozerov, and Patrick Pérez. Audio style transfer. ICASSP 2018. URL https://hal.archives-ouvertes.fr/hal-01626389/document.  
