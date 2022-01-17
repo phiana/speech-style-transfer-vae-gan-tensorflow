@@ -73,6 +73,8 @@ python3 inference.py --epoch 15 --wav 'data/spkr_1/2274602044_b3d55df235_3.wav' 
 
 ## References, related work, and additional reading
 
+The following publications, most of which are available freely online, contain invaluable background information on this topic, as well as additional state-of-the-art work in related tasks for style transfer and synthesis in the audio domain. I heavily relied on many of these resources for the implementation of this project. Please find them below:
+
 1. Aaron van den Oord, Sander Dieleman, Heiga Zen, Karen Simonyan, Oriol Vinyals, Alex Graves, Nal Kalchbrenner, Andrew Senior, and Koray Kavukcuoglu. WaveNet: A generative model for raw audio. arXiv, 2016. URL https://arxiv.org/pdf/1609.03499.pdf.  
 1. Ben Hayes, Charalampos Saitis, and George Fazekas. Neural waveshaping synthesis. arXiv, 2021. URL https://arxiv.org/pdf/2107.05050.pdf.  
 1. Berrak Sisman, Junichi Yamagishi, Simon King, and Haizhou Li. An Overview of Voice Conversion and Its Challenges: From Statistical Modeling to Deep Learning. IEEE/ACM Transactions on Audio, Speech, and Language Processing, 2021. URL https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=92620 21.  
